@@ -30,7 +30,7 @@ public class AtomicClassDemo {
         Thread[] threads1 = new Thread[10];
         for (int i = 0; i < 10; i++) {
             threads1[i] = new Thread(() -> {
-                for (int j = 0; j < 1000; j++) {
+                for (int j = 0; j < 1000000; j++) {
                     normalInt++; // 非原子操作
                 }
             });
@@ -98,8 +98,8 @@ public class AtomicClassDemo {
             " (返回旧值，然后+5)");
         System.out.println("当前值: " + atomicInt.get());
         
-        System.out.println("addAndGet(5): " + atomicInt.addAndGet(5) + 
-            " (先+5，返回新值)");
+        System.out.println("addAndGet(5): " + atomicInt.addAndGet(8) +
+            " (先+8，返回新值)");
         System.out.println("当前值: " + atomicInt.get());
         
         System.out.println("compareAndSet(25, 100): " + 
@@ -341,5 +341,9 @@ public class AtomicClassDemo {
         demonstrateOtherAtomicClasses();
     }
 }
+
+
+
+
 
 

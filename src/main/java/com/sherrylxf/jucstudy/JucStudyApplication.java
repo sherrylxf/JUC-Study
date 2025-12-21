@@ -1,7 +1,9 @@
 package com.sherrylxf.jucstudy;
 
 import com.sherrylxf.jucstudy.advanced.AdvancedDemo;
+import com.sherrylxf.jucstudy.aqs.AQSDemo;
 import com.sherrylxf.jucstudy.jmm.JMMDemo;
+import com.sherrylxf.jucstudy.lock.LockDemo;
 import com.sherrylxf.jucstudy.threadCreate.MyRunnable;
 import com.sherrylxf.jucstudy.threadCreate.MyThread;
 import com.sherrylxf.jucstudy.threadMethod.ThreadMethodDemo;
@@ -76,10 +78,20 @@ public class JucStudyApplication {
 //        // 演示所有JMM相关内容
 //        JMMDemo.demonstrateAll();
 
-        System.out.println("\n========== 第六部分：ThreadLocal、原子类、单例模式演示 ==========");
+//        System.out.println("\n========== 第六部分：ThreadLocal、原子类、单例模式演示 ==========");
+//
+//        // 演示ThreadLocal、原子类、单例模式
+//        AdvancedDemo.demonstrateAll();
         
-        // 演示ThreadLocal、原子类、单例模式
-        AdvancedDemo.demonstrateAll();
+//        System.out.println("\n========== 第七部分：锁演示 ==========");
+//
+//        // 演示所有锁相关内容
+//        LockDemo.demonstrateAll();
+        
+        System.out.println("\n========== 第八部分：AQS演示 ==========");
+        
+        // 演示所有AQS相关内容
+        AQSDemo.demonstrateAll();
         
         System.out.println("\n========== 所有演示完成 ==========");
     }

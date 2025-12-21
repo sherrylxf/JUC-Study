@@ -74,9 +74,9 @@ public class SingletonDemo {
         }
         
         public static DoubleCheckLockingWrong getInstance() {
-            if (instance == null) {
+            if (instance == null) { // 第一次检查：避免不必要的同步
                 synchronized (DoubleCheckLockingWrong.class) {
-                    if (instance == null) {
+                    if (instance == null) { // 第二次检查：确保只有一个线程创造实例
                         instance = new DoubleCheckLockingWrong();
                     }
                 }
@@ -92,7 +92,7 @@ public class SingletonDemo {
      * 缺点：代码较复杂
      */
     public static class DoubleCheckLockingCorrect {
-        private static volatile DoubleCheckLockingCorrect instance; // 使用volatile
+        private static volatile DoubleCheckLockingCorrect instance; // 使用volatile，避免指令重排序
         
         private DoubleCheckLockingCorrect() {
             System.out.println("DCL（正确）：实例已创建");
@@ -139,7 +139,7 @@ public class SingletonDemo {
         INSTANCE;
         
         public void doSomething() {
-            System.out.println("枚举单例：执行操作");
+
         }
     }
 
@@ -164,8 +164,8 @@ public class SingletonDemo {
         System.out.println("\n【5. 静态内部类】");
         testSingleton(() -> StaticInnerClassSingleton.getInstance(), "StaticInnerClassSingleton");
         
-//        System.out.println("\n【6. 枚举】");
-//        testSingleton(() -> EnumSingleton.INSTANCE, "EnumSingleton");
+        System.out.println("\n【6. 枚举】");
+        testSingleton(() -> EnumSingleton.INSTANCE, "EnumSingleton");
     }
 
     private static void testSingleton(java.util.function.Supplier<Object> supplier, String name) {
@@ -235,10 +235,10 @@ public class SingletonDemo {
         System.out.println("静态内部类: " + (end - start) + "ms");
         
         // 枚举
-//        start = System.currentTimeMillis();
-//        for (int i = 0; i < iterations; i++) {
-//            EnumSingleton.INSTANCE.doSomething();
-//        }
+        start = System.currentTimeMillis();
+        for (int i = 0; i < iterations; i++) {
+            EnumSingleton.INSTANCE.doSomething();
+        }
         end = System.currentTimeMillis();
         System.out.println("枚举: " + (end - start) + "ms");
     }
