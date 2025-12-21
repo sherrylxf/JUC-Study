@@ -2,6 +2,7 @@ package com.sherrylxf.jucstudy;
 
 import com.sherrylxf.jucstudy.advanced.AdvancedDemo;
 import com.sherrylxf.jucstudy.aqs.AQSDemo;
+import com.sherrylxf.jucstudy.concurrentContainer.ConcurrentContainerDemo;
 import com.sherrylxf.jucstudy.jmm.JMMDemo;
 import com.sherrylxf.jucstudy.lock.LockDemo;
 import com.sherrylxf.jucstudy.threadCreate.MyRunnable;
@@ -88,10 +89,15 @@ public class JucStudyApplication {
 //        // 演示所有锁相关内容
 //        LockDemo.demonstrateAll();
         
-        System.out.println("\n========== 第八部分：AQS演示 ==========");
+//        System.out.println("\n========== 第八部分：AQS演示 ==========");
+//
+//        // 演示所有AQS相关内容
+//        AQSDemo.demonstrateAll();
         
-        // 演示所有AQS相关内容
-        AQSDemo.demonstrateAll();
+        System.out.println("\n========== 第九部分：并发容器演示 ==========");
+        
+        // 演示所有并发容器相关内容
+        ConcurrentContainerDemo.demonstrateAll();
         
         System.out.println("\n========== 所有演示完成 ==========");
     }
